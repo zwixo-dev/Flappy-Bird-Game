@@ -27,5 +27,4 @@ class COIN(turtle.Turtle):
 
     def falling_coins(self):
         for fallen_coin in self.coins_list:
-            print(fallen_coin)
-            fallen_coin.forward(10)
+            fallen_coin.forward(5)
