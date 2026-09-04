@@ -25,34 +25,38 @@ screen.onkey(bird.move_left,"Left")
 screen.onkey(bird.move_right,"Right")
 
 
+#--------------------- Main Loop to run the game ---------------------
+
 while GAME_IS_ON:
     time.sleep(0.1)
     screen.update()
 
-    # evil birds
+    # --------- manage the bird player gravity ---------
+    bird.gravity_control()
+
+    # --------- generate evil birds randomly with movement ---------
     evils.gen_new_evil_bird()
     evils.evil_birds_movement()
 
-    # manage the bird player gravity
-    bird.gravity_control()
-    print(bird.ycor())
+    # --------- bird_catcher movement ---------
+    bird_catcher.movement_path()
 
-    #bird player conditions
-    # if the bird touch the top or bottom or left or right edges
-    if bird.ycor() > 480 or bird.ycor() < -400  or  bird.xcor() > 380 or bird.xcor() < -380 :
-        print("I hit the edges")
+
+    # --------- bird player conditions  ---------
+    # if the bird touch the top or left or right edges
+    if bird.ycor() > 480 or bird.xcor() > 380 or bird.xcor() < -380:
+        print("I touch the edges (Top or Left or Right)")
         GAME_IS_ON = False
-    
+
+    # If the bird is very close to the ground, it will be catched
+    if bird.ycor() < -400:
+        print("m gonna be catched :/")
+        GAME_IS_ON = False
+
+
     # if the bird touch any evil bird
     for evil_bird in evils.evil_birds_list:
         if evil_bird.distance(bird) < 20:
             GAME_IS_ON = False
             print("==== I touch the Evil Birsd =====")
 
-    # bird catcher condition 
-    bird_catcher.trying_to_catch()
-
-
-
-
-# screen.exitonclick()
