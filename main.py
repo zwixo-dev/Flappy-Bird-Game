@@ -45,7 +45,7 @@ while GAME_IS_ON:
     earn_coins.falling_coins()
 
     # --------- bird_catcher movement ---------
-    bird_catcher.movement_path()
+    bird_catcher.trying_to_catch()
 
 
     # --------- bird player conditions  ---------
@@ -65,7 +65,7 @@ while GAME_IS_ON:
         if evil_bird.distance(bird) < 20:
             GAME_IS_ON = False
             print("==== I touch the Evil Birsd =====")
-            
+
     # if the bird touch a coin remove it and increse the score
     for coin in earn_coins.coins_list:
         if coin.distance(bird) < 20:
