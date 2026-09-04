@@ -2,6 +2,7 @@ from turtle import Screen
 from bird import Bird
 from evil_birds import EVILBRIDS
 from net_man import netMan
+from coins import COIN
 import time
 
 GAME_IS_ON = True
@@ -18,6 +19,7 @@ screen.bgpic(img_path)
 bird = Bird() # bird player
 evils = EVILBRIDS() #bird evils
 bird_catcher = netMan() #net man
+earn_coins = COIN()
 
 screen.listen()
 screen.onkey(bird.move_up,"Up")
@@ -37,6 +39,10 @@ while GAME_IS_ON:
     # --------- generate evil birds randomly with movement ---------
     evils.gen_new_evil_bird()
     evils.evil_birds_movement()
+
+    # --------- coins earning ---------
+    earn_coins.gen_coin()
+    earn_coins.falling_coins()
 
     # --------- bird_catcher movement ---------
     bird_catcher.movement_path()
@@ -59,4 +65,9 @@ while GAME_IS_ON:
         if evil_bird.distance(bird) < 20:
             GAME_IS_ON = False
             print("==== I touch the Evil Birsd =====")
-
+            
+    # if the bird touch a coin remove it and increse the score
+    for coin in earn_coins.coins_list:
+        if coin.distance(bird) < 20:
+            print("coin touched Index ====> ", coin)
+            coin.hideturtle()
