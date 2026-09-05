@@ -4,7 +4,11 @@ from evil_birds import EVILBRIDS
 from net_man import netMan
 from coins import COIN
 from Huntingdog import SavageDog
+from playsound3 import playsound
 import time
+
+# CLAIMING COINS Sound 
+coin_sound = "audio/coin_claimed_sound.wav" 
 
 GAME_IS_ON = True
 
@@ -78,6 +82,7 @@ while GAME_IS_ON:
     for coin in earn_coins.coins_list:
         if coin.distance(bird) < 20:
             print("coin touched Index ====> ", coin)
+            playsound(sound=coin_sound, block=False)
             coin.hideturtle()
 
 screen.exitonclick()
