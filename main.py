@@ -3,6 +3,7 @@ from bird import Bird
 from evil_birds import EVILBRIDS
 from net_man import netMan
 from coins import COIN
+from Huntingdog import SavageDog
 import time
 
 GAME_IS_ON = True
@@ -19,7 +20,8 @@ screen.bgpic(img_path)
 bird = Bird() # bird player
 evils = EVILBRIDS() #bird evils
 bird_catcher = netMan() #net man
-earn_coins = COIN()
+earn_coins = COIN() #Coins
+dog_hunted = SavageDog()
 
 screen.listen()
 screen.onkey(bird.move_up,"Up")
@@ -55,10 +57,16 @@ while GAME_IS_ON:
         GAME_IS_ON = False
 
     # If the bird is very close to the ground, it will be catched
-    if bird.ycor() < -400:
+    if bird.ycor() < -380:
         print("m gonna be catched :/")
+        dog_hunted.catch_the_bird(bird.xcor(), bird.ycor())
+        screen.update()
         GAME_IS_ON = False
 
+    # if the bird touch bird_catcher
+    if bird_catcher.distance(bird) < 70:
+        print("m catched by the bird_catcher")
+        GAME_IS_ON = False
 
     # if the bird touch any evil bird
     for evil_bird in evils.evil_birds_list:
@@ -71,3 +79,5 @@ while GAME_IS_ON:
         if coin.distance(bird) < 20:
             print("coin touched Index ====> ", coin)
             coin.hideturtle()
+
+screen.exitonclick()
