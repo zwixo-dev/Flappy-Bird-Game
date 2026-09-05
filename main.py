@@ -8,7 +8,8 @@ from playsound3 import playsound
 import time
 
 # CLAIMING COINS Sound 
-coin_sound = "audio/coin_claimed_sound.wav" 
+COIN_SOUND = "audios/coin_claimed_sound.wav" 
+DOG_SOUND = "audios/dog_sound.mp3"
 
 GAME_IS_ON = True
 
@@ -63,6 +64,7 @@ while GAME_IS_ON:
     # If the bird is very close to the ground, it will be catched
     if bird.ycor() < -380:
         print("m gonna be catched :/")
+        playsound(sound=DOG_SOUND, block=False)
         dog_hunted.catch_the_bird(bird.xcor(), bird.ycor())
         screen.update()
         GAME_IS_ON = False
@@ -82,7 +84,7 @@ while GAME_IS_ON:
     for coin in earn_coins.coins_list:
         if coin.distance(bird) < 20:
             print("coin touched Index ====> ", coin)
-            playsound(sound=coin_sound, block=False)
+            playsound(sound=COIN_SOUND, block=False)
             coin.hideturtle()
 
 screen.exitonclick()
