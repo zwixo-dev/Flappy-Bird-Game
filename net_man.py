@@ -1,6 +1,11 @@
 import turtle
+import time
+from playsound3 import playsound
+
 
 NET_MAN_PATH = "imgs/Net_Man_v3.png"
+CATCHER_SOUND = "audios/catchersound.mp3"
+
 
 turtle.addshape(NET_MAN_PATH)
 
@@ -26,8 +31,11 @@ class netMan(turtle.Turtle):
         print("=====================>",self.xcor())
         if self.xcor() > 360:
             self.direction = -1
+            playsound(sound=CATCHER_SOUND, block=False)
         elif self.xcor() <-360:
             self.direction = 1
+            playsound(sound=CATCHER_SOUND, block=False)
+
 
         self.movement_path()    
 
