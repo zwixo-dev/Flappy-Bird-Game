@@ -1,6 +1,8 @@
 import turtle
+from playsound3 import playsound
 
 BIRD_IMG_PATH ="imgs/v2.png"
+FLYING_SOUND = "audios/flying_sound.mp3"
 
 turtle.addshape(BIRD_IMG_PATH)
 
@@ -18,7 +20,8 @@ class Bird(turtle.Turtle):
     # controle the movements
     def move_up(self):
         current_y_pos = self.ycor()
-        self.goto(x=self.xcor(), y=current_y_pos+30)
+        self.goto(x=self.xcor(), y=current_y_pos+50)
+        playsound(sound=FLYING_SOUND, block=False)
 
     def move_left(self):
         current_x_pos = self.xcor()
