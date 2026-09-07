@@ -6,6 +6,7 @@ from coins import COIN
 from Huntingdog import SavageDog
 from playsound3 import playsound
 from game_infos import Tutorial
+from score import Score
 import time
 
 # CLAIMING COINS Sound 
@@ -29,6 +30,7 @@ bird_catcher = netMan() #net man
 earn_coins = COIN() #Coins
 dog_hunted = SavageDog() # savage dog
 game_tutorial = Tutorial() # game tutorial
+game_score = Score()
 
 screen.listen()
 screen.onkey(bird.move_up,"Up")
