@@ -12,6 +12,7 @@ import time
 # CLAIMING COINS Sound 
 COIN_SOUND = "audios/coin_claimed_sound.wav" 
 DOG_SOUND = "audios/dog_sound.mp3"
+OUCH_SOUND = "audios/Ouch_sound.mp3"
 
 GAME_IS_ON = True
 
@@ -81,6 +82,7 @@ while GAME_IS_ON:
     # if the bird touch any evil bird
     for evil_bird in evils.evil_birds_list:
         if evil_bird.distance(bird) < 20:
+            playsound(sound=OUCH_SOUND, block=False)
             GAME_IS_ON = False
             print("==== I touch the Evil Birsd =====")
 
@@ -89,6 +91,7 @@ while GAME_IS_ON:
         if coin.distance(bird) < 20:
             print("coin touched Index ====> ", coin)
             playsound(sound=COIN_SOUND, block=False)
+            game_score.increase()
             coin.hideturtle()
 
 screen.exitonclick()
