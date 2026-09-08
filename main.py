@@ -78,6 +78,7 @@ while GAME_IS_ON:
         playsound(sound=DOG_SOUND, block=False)
         dog_hunted.catch_the_bird(bird.xcor(), bird.ycor())
         screen.update()
+        game_tutorial.hunting_dog_message()
         GAME_IS_ON = False
 
     # if the bird touch bird_catcher
