@@ -91,6 +91,7 @@ while GAME_IS_ON:
     for evil_bird in evils.evil_birds_list:
         if evil_bird.distance(bird) < 20:
             playsound(sound=OUCH_SOUND, block=False)
+            game_tutorial.evil_bird_is_touched()
             GAME_IS_ON = False
             print("==== I touch the Evil Birsd =====")
 
