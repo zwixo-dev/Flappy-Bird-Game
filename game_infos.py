@@ -31,3 +31,6 @@ class Tutorial():
     def hunting_dog_message(self):
         messagebox.showinfo(title="Catched by hunting dog", message="rawr! rawr! rawr! rawr!")
 
+    def evil_bird_is_touched(self):
+        messagebox.showinfo(title="Catched by hunting dog", message="rawr! rawr! rawr! rawr!")
+        
