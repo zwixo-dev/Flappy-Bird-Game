@@ -61,9 +61,15 @@ while GAME_IS_ON:
 
 
     # --------- bird player conditions  ---------
-    # if the bird touch the top or left or right edges
-    if bird.ycor() > 480 or bird.xcor() > 400 or bird.xcor() < -400:
+    # if the bird touch the left or right edges
+    if bird.xcor() > 400 or bird.xcor() < -400:
         print("I touch the edges (Top or Left or Right)")
+        game_tutorial.edges_is_touched()
+        GAME_IS_ON = False
+
+    # if the bird touch the top you gonna lose because of oxygen
+    if bird.ycor() > 480:
+        game_tutorial.top_is_touched()
         GAME_IS_ON = False
 
     # If the bird is very close to the ground, it will be catched
