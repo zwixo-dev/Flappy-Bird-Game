@@ -10,7 +10,7 @@ class EVILBRIDS(turtle.Turtle):
         super().__init__()
         self.hideturtle()
         self.evil_birds_list = []
-        self.evil_x_pos = 300
+        self.evil_x_pos = 400
         
     # manage evil birds
     def gen_new_evil_bird(self):
@@ -21,7 +21,7 @@ class EVILBRIDS(turtle.Turtle):
             new_evil_bird.shape(EVIL_BRID)
             new_evil_bird.penup()
             new_evil_bird.setheading(180)
-            rand_y_pos = random.randint(-270, 270)
+            rand_y_pos = random.randint(-340, 460)
             new_evil_bird.goto(x=self.evil_x_pos, y= rand_y_pos)
             self.evil_birds_list.append(new_evil_bird)
 
