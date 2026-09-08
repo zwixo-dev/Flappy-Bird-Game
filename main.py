@@ -83,6 +83,7 @@ while GAME_IS_ON:
     # if the bird touch bird_catcher
     if bird_catcher.distance(bird) < 70:
         print("m catched by the bird_catcher")
+        game_tutorial.bird_catcher_message()
         GAME_IS_ON = False
 
     # if the bird touch any evil bird
