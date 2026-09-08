@@ -28,4 +28,6 @@ class Tutorial():
     def bird_catcher_message(self):
         messagebox.showinfo(title="Catched by net man", message="Ooooh Yeah! It's going to cook now.")
 
+    def hunting_dog_message(self):
+        messagebox.showinfo(title="Catched by hunting dog", message="rawr! rawr! rawr! rawr!")
 
