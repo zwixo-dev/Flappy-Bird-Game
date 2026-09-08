@@ -24,6 +24,8 @@ class Tutorial():
 
     def top_is_touched(self):
         messagebox.showinfo(title="Extremely high", message="Euuh! I'm dying from a lack of oxygen.")
-    
+
+    def bird_catcher_message(self):
+        messagebox.showinfo(title="Catched by net man", message="Ooooh Yeah! It's going to cook now.")
 
 
