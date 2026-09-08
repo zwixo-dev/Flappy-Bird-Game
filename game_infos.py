@@ -18,4 +18,12 @@ class Tutorial():
                                 )
 
 
+    # showing message if the player touch the left or right edges
+    def edges_is_touched(self):
+        messagebox.showinfo(title="Edges directed", message="Ooops! You lost; make sure not to touch the edges next time.")
+
+    def top_is_touched(self):
+        messagebox.showinfo(title="Extremely high", message="Euuh! I'm dying from a lack of oxygen.")
+    
+
 
