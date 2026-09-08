@@ -11,6 +11,8 @@ class EVILBRIDS(turtle.Turtle):
         self.hideturtle()
         self.evil_birds_list = []
         self.evil_x_pos = 400
+        # speed
+        self.evil_bird_speed = 10
         
     # manage evil birds
     def gen_new_evil_bird(self):
@@ -29,5 +31,5 @@ class EVILBRIDS(turtle.Turtle):
     def evil_birds_movement(self):
         rand_y = random.randint(2, 5)
         for evil_bird in self.evil_birds_list:
-            evil_bird.forward(10)
+            evil_bird.forward(self.evil_bird_speed)
             # evil_bird.goto(x=self.xcor(), y=rand_y)
